@@ -1,0 +1,79 @@
+﻿@model FindYourStoryApp.Models.Product
+@{
+    ViewData["Title"] = "Home Page";
+    int imageIndex = 0;
+}
+<head>
+    <!--Uses the SuperHero Style sheet.
+    Medium (2022) demonstrates how to reference a style sheet.-->
+    <link rel="stylesheet" href="~/css/Lux_StyleSheet.css" />
+</head>
+<form asp-action="Index">
+        <br>
+        <div align="center">
+        <!--W3Schools (2023) demonstrates the <section> tag.-->
+        <!--FOREACH LOOP loops through all the book cover images in the list and displays
+            each image in an img tag, as well as the associated book details through using an index variable.-->
+        @foreach (var image in ViewBag.ImageDataList)
+        {
+            <section>
+                <!--Richard C (2024) demonstrates how to display a Base64 image in HTML.-->
+                <img src="data:image/jpg;base64,@image" height="200" width="200"/>
+                <div>
+                    <!--Gets the product id of the book to which the user has clicked on the associated "Add Item" button-->
+                    <input type="hidden" asp-for="ProductId" value="@ViewBag.BookDetailList[imageIndex].ProductId" />
+                    <h4>@ViewBag.BookDetailList[imageIndex].Title</h4>
+                    <p>Author: @ViewBag.BookDetailList[imageIndex].Author</p>
+                    <p>Price: R @ViewBag.BookDetailList[imageIndex].Price</p>
+                    <!--IF statement checks the boolean value of the InStock property and displays an apprpriate
+                        value of either "Available"/"Sold Out" for improved user readability.
+                    -->
+                    @if (@ViewBag.BookDetailList[imageIndex].InStock == true)
+                    {
+                        <p class="text-success">Stock: Available</p>
+                    }
+                    else
+                    {
+                        <p class="text-danger">Stock: Sold Out</p>
+                    }
+                    <button type="submit" onclick="confirmItemAdded" class="btn btn-primary">Add Item</button>
+                </div>
+           </section>
+            <br>
+            <br>
+            imageIndex++;
+        }<!--end of FOREACH LOOP-->
+    </div>
+</form>
+<!--Function to show confirmation to the user that the book that they have selected has been added to their cart.--->
+<!--https://www.w3schools.com/jsref/met_win_alert.asp-->
+<script>  
+    function confirmItemAdded() { 
+        alert("Item added to cart!");
+    }
+</script>
+        <br>
+        <br>
+        <!--W3Schools (2023) demonstrates the <section> tag.-->
+        <!--This section provides the Find Your Story contact info to the user.-->
+        <section id="Contact">
+            <h1>Contact Us</h1>
+            <p>findyourstory@gmail.com</p>
+            <p>079 678 3423</p>
+        </section>
+<!--REFERENCE LIST:
+Medium. 2022. Bootswatch Theme/Bootstrap, 10 March 2022 (Version 1.0)
+[Source code] https://rose-chang-dycd0224.medium.com/bootswatch-theme-bootstrap-b6d7a5ea367b
+(Accessed 26 November 2023).
+Medium. 2020. Javascript Display None Property, 5 August 2020 (Version 1.0)
+[Source code] https://medium.com/developerhelps/getelementbyid-display-none-faf96b4d24b0#:~:text=getElementById(%22element%22).,display%20property%20to%20%E2%80%9Cblock%E2%80%9D.
+(Accessed 26 November 2023).
+Richard C. 2024. How do I display a Base64 image in HTML. Sentry, 15 January 2024 (Version 1.0)
+[Source code] https://sentry.io/answers/how-do-i-display-a-base64-image-in-html/#:~:text=Your%20src%20attribute%20must%20begin,gif%20%2C%20or%20svg%2Bxml%20.&text=%3Cimg%20src%3D%22data%3Aimage%2Fjpeg%3Bcharset,8%3Bbase64%2C%20...
+(Accessed 26 February 2024).
+TutorialsTeacher. 2023. ASP.NET MVC - ViewBag (Version 1.0)
+[Source code] https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+(Accessed 23 November 2023).
+W3Schools. 2023. HTML <section> Tag (Version 1.0)
+[Source code] https://www.w3schools.com/tags/tag_section.asp
+(Accessed 26 November 2023).-->

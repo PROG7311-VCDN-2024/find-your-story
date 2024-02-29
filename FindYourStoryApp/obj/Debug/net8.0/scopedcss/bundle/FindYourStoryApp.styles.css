@@ -1,0 +1,49 @@
+/* _content/FindYourStoryApp/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-aybed0bdnc] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-aybed0bdnc] {
+  color: #0077cc;
+}
+
+.btn-primary[b-aybed0bdnc] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-aybed0bdnc], .nav-pills .show > .nav-link[b-aybed0bdnc] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-aybed0bdnc] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-aybed0bdnc] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-aybed0bdnc] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-aybed0bdnc] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-aybed0bdnc] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
