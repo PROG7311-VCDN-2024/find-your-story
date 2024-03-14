@@ -1,0 +1,89 @@
+﻿@model IEnumerable<FindYourStoryApp.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br>
+<!--Displays all users and their details in a neat table format.-->
+<h1>Users</h1>
+
+<p>
+    <!--Places an image and label instead of an action link for Create New.-->
+    <a asp-action="Create">
+        <img src="~/img/Add New_Icon.png" height="40" width="40" /><label>Create New</label>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role.RoleType)
+            </td>
+            <td>
+                    <!--TAB index (2024) demonstrates how to disable text wrapping.-->
+                    <!--Places an image instead of an action link for Edit and Delete.-->
+                <td style="white-space: nowrap;">
+                    <a asp-action="Edit" asp-route-id="@item.UserId">
+                        <img src="~/img/Edit_Icon.jpg" height="40" width="40" />
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@item.UserId">
+                        <img src="~/img/Delete_Icon.png" height="40" width="40" />
+                    </a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!--REFERENCE LIST:
+TAG index. 2024. Disables automatic text wrapping, 2024 (Version 1.0)
+[Source code] https://www.tagindex.net/css/table/white_space.html
+(Accessed 7 March 2024).
+-->

@@ -7,15 +7,15 @@ public partial class Product
 {
     public int ProductId { get; set; }
 
-    public byte[]? BookCoverImage { get; set; }
+    public byte[] BookCoverImage { get; set; } = null!;
 
     public string Title { get; set; } = null!;
 
     public string Author { get; set; } = null!;
 
-    public decimal Price { get; set; }
+    public int Price { get; set; }
 
-    public bool InStock { get; set; }
+    public int InStock { get; set; }
 
     public virtual ICollection<Cart> Carts { get; set; } = new List<Cart>();
 }

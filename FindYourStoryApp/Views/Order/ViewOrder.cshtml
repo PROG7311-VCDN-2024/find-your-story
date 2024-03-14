@@ -1,0 +1,51 @@
+﻿@model FindYourStoryApp.Models.Order
+
+@{
+    ViewData["Title"] = "Order Page";
+}
+<h1>Orders</h1>
+<table class="table">
+    <thead>
+        <tr class="table-info">
+            <th>
+                Order ID
+            </th>
+            <th>
+                Date Placed
+            </th>
+            <th>
+                Amount
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Address
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.OrderDetailDisplay)
+        {
+            <tr>
+                <td>
+                    @item.OrderID
+                </td>
+                <td>
+                    @item.OrderDateAndTime
+                </td>
+                <td>
+                    @item.OrderAmount
+                </td>
+                <td>
+                    @item.OrderStatus
+                </td>
+                <td>
+                    @item.OrderAddress
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

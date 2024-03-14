@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FindYourStoryApp.Models.Role>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<br>
+<!--Displays all roles and their details in a neat table format.-->
+<h1>Roles</h1>
+
+<p>
+    <!--Places an image and label instead of an action link for Create New.-->
+    <a asp-action="Create">
+        <img src="~/img/Add New_Icon.png" height="40" width="40" /><label>Create New</label>
+    </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleType)
+            </td>
+            <td>
+                    <!--TAB index (2024) demonstrates how to disable text wrapping.-->
+                    <!--Places an image instead of an action link for Edit and Delete.-->
+                <td style="white-space: nowrap;">
+                    <a asp-action="Edit" asp-route-id="@item.RoleId">
+                        <img src="~/img/Edit_Icon.jpg" height="40" width="40" />
+                    </a>
+
+                    <a asp-action="Delete" asp-route-id="@item.RoleId">
+                        <img src="~/img/Delete_Icon.png" height="40" width="40" />
+                    </a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!--REFERENCE LIST:
+TAG index. 2024. Disables automatic text wrapping, 2024 (Version 1.0)
+[Source code] https://www.tagindex.net/css/table/white_space.html
+(Accessed 7 March 2024).
+-->

@@ -1,0 +1,68 @@
+﻿@model FindYourStoryApp.Models.Cart
+@{
+    ViewData["Title"] = "Cart Page";
+    int imageIndex = 0;
+}
+<!--W3Schools (2024) demonstrates how to create columns cards.-->
+<!--Organises the display of products in a neat card style.-->
+<div class="card shadow border-0">
+    <div class="card-body my-4">
+        <div class="row">
+        </div>
+        <div class="row mb-3 pb-3">
+            <div class="col-md-10 offset-md-1">
+
+                <!--FOREACH LOOP loops through all the book cover images in the user cart and displays
+                each image in an img tag, as well as the associated book details through using an index variable.
+                Additionally, each "Delete" button links to the product ID of the book selected-->
+                <!--TutorialsTeacher (2024) demonstrates how to use a ViewBag.-->
+                @foreach (var item in ViewBag.CartImageDisplay)
+                {
+                    <div class="row border-bottom pb-3">
+                        <div class="d-none d-lg-block col-lg-1 text-center py-2">
+
+                            <!--Richard C (2024) demonstrates how to display a Base64 image in HTML.-->
+                            <img src="data:image/jpg;base64,@item" height="100" width="100" />
+
+                        </div>
+                        <div class="col-12 col-lg-6 pt-md-3">
+                            <h5 class="text-uppercase text-secondary"><strong>@ViewBag.CartDetailDisplay[imageIndex].BookTitle</strong></h5>
+                        </div>
+                        <div class="col-12  col-lg-5 text-center row">
+                            <div class="col-3 text-md-right pt-2 pt-md-4">
+                                <h6 class="fw-semibold">
+                                    R @ViewBag.CartDetailDisplay[imageIndex].BookPrice
+                                </h6>
+                            </div>
+                            <form asp-action="RemoveBookFromCart" asp-route-productId="@ViewBag.CartDetailDisplay[imageIndex].BookId" method="post">
+                                <button type="submit" class="col-12 col-lg-4 form-control">
+                                    <img src="~/img/Delete_Icon.png" height="30" width="30"/>
+                                </button>
+                            </form>
+                        </div>
+                  </div>
+                    imageIndex++;
+                }<!--end of FOREACH LOOP.-->
+            </div>
+        </div>
+        <!--Displays the total price of the cart.-->
+        <div class="card-footer bg-white border-0">
+            <div class="row">
+                            <h5 class="text-dark fw-semibold text-uppercase"> Total (ZA) @ViewBag.TotalPrice</h5>
+            </div>
+        </div>
+        <form asp-action="Checkout">
+            <button class="btn btn-primary bg-gradient border-0 form-control">Checkout</button>
+        </form>
+    </div>
+</div>
+<!--REFERENCE LIST:
+Richard C. 2024. How do I display a Base64 image in HTML. Sentry, 15 January 2024 (Version 1.0)
+[Source code] https://sentry.io/answers/how-do-i-display-a-base64-image-in-html/#:~:text=Your%20src%20attribute%20must%20begin,gif%20%2C%20or%20svg%2Bxml%20.&text=%3Cimg%20src%3D%22data%3Aimage%2Fjpeg%3Bcharset,8%3Bbase64%2C%20...
+(Accessed 26 February 2024).
+TutorialsTeacher. 2024. ASP.NET MVC - ViewBag (Version 1.0)
+[Source code] https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+(Accessed 28 February 2024).
+W3Schools. 2024. How To - Column Cards, 2024 (Version 1.0)
+[Source code] https://www.w3schools.com/howto/howto_css_column_cards.asp
+(Accessed 5 March 2024).-->

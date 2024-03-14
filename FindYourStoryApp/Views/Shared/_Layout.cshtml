@@ -26,14 +26,20 @@
                                 <span class="visually-hidden">(current)</span>
                             </a>
                         </li>
-                        <!--IF statement checks if the user has sucessfully logged in through using the session, and if so, displays the username 
-                            of the user currently logged in, in place of the previous "Register/Log In" navigation item, ELSE, the "Register/Log In"
+                        <!--IF statement checks if the user has sucessfully logged in through using Firebase Authentication, and if so, displays the 
+                            email of the user currently logged in, in place of the previous "Register/Log In" navigation item, ELSE, the "Register/Log In"
                             navigation item will be shown.
                         -->
-                        @if (ViewBag.UserLoggedIn != null)
+                        @if (!string.IsNullOrEmpty(ViewBag.UserLoggedIn))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">@ViewBag.UserLoggedIn</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <img src="~/img/Profile_Icon.png" height="40" width="40" />
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="User" asp-action="UserProfile">View Profile</a>
+                                    <a class="dropdown-item" asp-controller="User" asp-action="Logout">Log Out</a>
+                                </div>
                             </li>
                         }
                         else
@@ -47,13 +53,35 @@
                             </div>
                         </li>
                         }
+
+                        <!--IF statement checks if the user logged in, through using the session, has a user role of type Admin, and if so,
+                            displays a drop-down list of all the tables in the database that they can manage.
+                        -->
+                        @if (ViewBag.UserRole == "Admin")
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manage Database</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" asp-controller="AdminUser" asp-action="Index">Manage Users</a>
+                                    <a class="dropdown-item" asp-controller="AdminRole" asp-action="Index">Manage Roles</a>
+                                    <a class="dropdown-item" asp-controller="AdminProduct" asp-action="Index">Manage Products</a>
+                                    <a class="dropdown-item" asp-controller="AdminOrder" asp-action="Index">Manage Orders</a>
+                                    <div class="dropdown-divider"></div>
+                                </div>
+                            </li>
+                        }
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Cart" asp-action="Cart" >View Cart</a>
+                            <a class="nav-link" asp-controller="Order" asp-action="ViewOrder">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="ViewCart" >
+                                <img src="~/img/Shopping_Cart_Icon.png" height="30" width="30" />
+                            </a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2 text-dark" type="search" placeholder="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <form class="d-flex" asp-controller="Home" asp-action="SearchBooks">
+                        <input size="30" name="searchQuery" type="search" placeholder="Search for books by title..." class="form-control me-sm-2 text-dark">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit" >Search</button>
                     </form>
                 </div>
             </div>

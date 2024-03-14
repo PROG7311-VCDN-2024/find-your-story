@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FindYourStoryApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d3ec71fb8f6d2b9d781ea13c2c35911ba44736b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+91a3277318cdfc55fc455c8d524353afc0eea9e6")]
 [assembly: System.Reflection.AssemblyProductAttribute("FindYourStoryApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FindYourStoryApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

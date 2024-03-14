@@ -1,0 +1,92 @@
+﻿@model FindYourStoryApp.Models.Product
+@{
+    ViewData["Title"] = "Search Page";
+    int imageIndex = 0;
+}
+<head>
+    <!--Uses the SuperHero Style sheet.
+    Medium (2022) demonstrates how to reference a style sheet.-->
+    <link rel="stylesheet" href="~/css/Lux_StyleSheet.css" />
+</head>
+
+<!--Function to show an alert message to user confirming of item added successfully to cart based on the
+    ItemAdded value.
+-->
+<!--W3Schools (2024) demonstrates the alert() box.-->
+<script>
+    function showAddToCartSuccess() {
+        if (ViewBag.ItemAdded == true) {
+
+            alert("Item added successfully to cart!");
+        }
+    }
+</script>
+
+<div class="row pb-3">
+@foreach (var bookProduct in ViewBag.ImageDataList)
+{
+    <!--Organises the display of products in a neat card style.-->
+    <div class="col-lg-3">
+        <div class="row p-2">
+            <div class="col-12 p-1">
+                <div class="card shadow rounded">
+
+                    <!--Richard C (2024) demonstrates how to display a Base64 image in HTML.-->
+                    <img src="data:image/jpg;base64,@bookProduct" />
+
+                    <div class="card-body pb-0">
+                        <div class="pl-1">
+                            <p class="card-title h5 text-dark text-uppercase text-center">@ViewBag.BookDetailList[imageIndex].Title</p>
+                            <p class="card-title text-warning text-center">by <b>@ViewBag.BookDetailList[imageIndex].Author</b></p>
+                        </div>
+                        <div class="pl-1">
+                            <p class="text-dark text-center">R @ViewBag.BookDetailList[imageIndex].Price</p>
+                        </div>
+
+                        <!--IF statement checks the boolean value of the InStock property and displays an appropriate
+                            value of either "Available"/"Sold Out" instead of "True/False".
+                        -->
+                        @if (@ViewBag.BookDetailList[imageIndex].InStock > 0)
+                        {
+                            <p class="text-success">Stock: Available</p>
+                        }
+                        else
+                        {
+                            <p class="text-danger">Stock: Sold Out</p>
+                        }
+                    </div>
+                    <div>
+                        <a asp-action="BookDetails"
+                           asp-route-productId="@ViewBag.BookDetailList[imageIndex].ProductId"
+                           class="btn btn-primary bg-gradient border-0 form-control">
+                            Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    imageIndex++;
+}<!--end of FOREACH LOOP-->
+ </div>
+<br>
+<br>
+<!--REFERENCE LIST:
+Medium. 2022. Bootswatch Theme/Bootstrap, 10 March 2022 (Version 1.0)
+[Source code] https://rose-chang-dycd0224.medium.com/bootswatch-theme-bootstrap-b6d7a5ea367b
+(Accessed 26 February 2024).
+Richard C. 2024. How do I display a Base64 image in HTML. Sentry, 15 January 2024 (Version 1.0)
+[Source code] https://sentry.io/answers/how-do-i-display-a-base64-image-in-html/#:~:text=Your%20src%20attribute%20must%20begin,gif%20%2C%20or%20svg%2Bxml%20.&text=%3Cimg%20src%3D%22data%3Aimage%2Fjpeg%3Bcharset,8%3Bbase64%2C%20...
+(Accessed 26 February 2024).
+TutorialsTeacher. 2024. ASP.NET MVC - ViewBag (Version 1.0)
+[Source code] https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+(Accessed 28 February 2024).
+W3Schools. 2024. How To - Column Cards, 2024 (Version 1.0)
+[Source code] https://www.w3schools.com/howto/howto_css_column_cards.asp
+(Accessed 5 March 2024).
+W3Schools. 2024. Window alert(), 2024 (Version 1.0)
+[Source code] https://www.w3schools.com/jsref/met_win_alert.asp
+(Accessed 5 March 2024).
+Whatstyle. 2008. How to send multiple values through one form button, 4 July 2008 (Version 1.0)
+[Source code] https://www.whatstyle.net/articles/49/how_to_send_multiple_values_through_one_form_button
+(Accessed 4 March 2024).-->

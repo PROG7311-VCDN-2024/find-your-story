@@ -1,0 +1,53 @@
+﻿@model FindYourStoryApp.Models.MockPayment
+@{
+    ViewBag.Title = "Payment Page";
+}
+
+<h2>Make A Payment</h2>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="ProcessPayment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!--Displays the form fields for all the model properties in the MockPayment class, in addition to, binding and
+                validating the entered data to those different model properties.
+            -->
+            <div class="form-group">
+                <label class="control-label">Card Number</label>
+                <input asp-for="CardNumber" class="form-control" />
+                <span asp-validation-for="CardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Expiry Date</label>
+                <input asp-for="ExpiryDate" class="form-control" />
+                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">CVV</label>
+                <input asp-for="CVVDigits" class="form-control" />
+                <span asp-validation-for="CVVDigits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Amount</label>
+                <input asp-for="Amount" class="form-control" readonly/>
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <!--Displays an error message to user.-->
+            <!--TutorialsTeacher (2024) demonstrates how to use a ViewBag.-->
+            <p class="text-bg-danger">@ViewBag.ErrorMessage</p>
+            <div class="form-group">
+                <input type="submit" value="Pay Now" class="btn btn-primary" style="margin-top:30px;" />
+            </div>
+            
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+<!--REFERENCE LIST:
+TutorialsTeacher. 2024. ASP.NET MVC - ViewBag (Version 1.0)
+[Source code] https://www.tutorialsteacher.com/mvc/viewbag-in-asp.net-mvc
+(Accessed 28 February 2024).-->

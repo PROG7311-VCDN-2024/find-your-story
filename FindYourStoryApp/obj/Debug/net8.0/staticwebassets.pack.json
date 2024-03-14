@@ -13,12 +13,28 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\Add New_Icon.png",
+      "PackagePath": "staticwebassets\\img\\Add New_Icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\Delete_Icon.png",
+      "PackagePath": "staticwebassets\\img\\Delete_Icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\Edit_Icon.jpg",
+      "PackagePath": "staticwebassets\\img\\Edit_Icon.jpg"
     },
     {
       "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\FindYourStory_Banner.png",
       "PackagePath": "staticwebassets\\img\\FindYourStory_Banner.png"
+    },
+    {
+      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\Payment_Success_Icon.png",
+      "PackagePath": "staticwebassets\\img\\Payment_Success_Icon.png"
+    },
+    {
+      "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\img\\Profile_Icon.png",
+      "PackagePath": "staticwebassets\\img\\Profile_Icon.png"
     },
     {
       "Id": "C:\\Users\\Rachael\\Documents\\BCAD YEAR 3\\PROG7311 YEAR 3\\SPRINT 1 - FIND YOUR STORY\\FindYourStoryApp\\wwwroot\\js\\site.js",

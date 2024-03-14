@@ -1,0 +1,86 @@
+﻿@model FindYourStoryApp.Models.User
+@{
+    ViewData["Title"] = "User Profile Page";
+}
+<head>
+    <!--Uses the SuperHero Style sheet.
+    Medium (2022) demonstrates how to reference a style sheet.-->
+    <link rel="stylesheet" href="~/css/Lux_StyleSheet.css" />
+</head>
+
+ <form asp-action="UserProfile">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="UserId" />
+<!--W3Schools (2024) demonstrates how to create columns cards.-->
+        <!--Organises the display of user details in a one neat card style.-->
+                    <div class="card shadow rounded">
+                       <div class="text-center">
+                        <img src="~/img/Profile_Icon.png" height="100" width="100"/>
+                       </div>
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark text-uppercase text-center">User Profile</p>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <label asp-for="FirstName" class="control-label"></label>
+                                <input asp-for="FirstName" class="form-control" />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <label asp-for="LastName" class="control-label"></label>
+                                <input asp-for="LastName" class="form-control" />
+                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                </p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <label asp-for="Dob" class="control-label"></label>
+                                <input asp-for="Dob" class="form-control" />
+                                <span asp-validation-for="Dob" class="text-danger"></span>
+                                </p>
+                            </div>
+                             <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" readonly/>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                </p>
+                            </div>
+                             <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <label asp-for="Username" class="control-label"></label>
+                                <input asp-for="Username" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                                </p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <input type="hidden" asp-for="RoleId" class="form-control" readonly/>
+                                <span asp-validation-for="RoleId" class="text-danger"></span>
+                                </p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark text-center">
+                                <input type="hidden" asp-for="FirebaseUid" class="form-control" readonly />
+                                <span asp-validation-for="FirebaseUid" class="text-danger"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <center>
+                            <input type="submit" value="Save" class="btn btn-info"/>
+                            </center>
+                        </div>
+                        <Br>
+                    </div>
+</form>
+<br>
+<br>
+
+<br>
+<br>

@@ -425,6 +425,7 @@ svg {
 table {
     caption-side: bottom;
     border-collapse: collapse;
+    
 }
 
 caption {
@@ -442,7 +443,11 @@ th {
 thead,
 tbody,
 tfoot,
-tr,
+/*Makes each other row have a light blue background.
+/*W3Schools (2024) demonstrates how to style a table with zebra stripes.*/
+table tr:nth-child(even) {
+    background-color: lightblue;
+}
 td,
 th {
     border-color: inherit;
@@ -13562,3 +13567,7 @@ th {
 .card .h6 {
     color: inherit;
 }
+/*REFERENCE LIST:
+W3Schools. 2024. HTML Table Styling, 2024 (Version 1.0)
+[Source code] https://www.w3schools.com/html/html_table_styling.asp
+(Accessed 7 March 2024).*/

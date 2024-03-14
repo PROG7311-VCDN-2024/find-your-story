@@ -1,0 +1,90 @@
+﻿@model IEnumerable<FindYourStoryApp.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <br>
+    <!--Displays all orders and their details in a neat table format.-->
+    <h1>Orders</h1>
+
+    <p>
+        <!--Places an image and label instead of an action link for Create New.-->
+        <a asp-action="Create">
+            <img src="~/img/Add New_Icon.png" height="40" width="40" /><label>Create New</label>
+        </a>
+    </p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShippingAddress)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShippingAddress.AddressLine1)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingAddress.AddressLine2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippingAddress.PostalCode)
+                </td>
+            <!--TAB index (2024) demonstrates how to disable text wrapping.-->
+            <!--Places an image instead of an action link for Edit and Delete.-->
+                <td style="white-space: nowrap;">
+                <a asp-action="Edit" asp-route-id="@item.OrderId">
+                    <img src="~/img/Edit_Icon.jpg" height="40" width="40"/>
+                </a>
+
+                <a asp-action="Delete" asp-route-id="@item.OrderId">
+                   <img src="~/img/Delete_Icon.png" height="40" width="40" />
+                </a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!--REFERENCE LIST:
+TAG index. 2024. Disables automatic text wrapping, 2024 (Version 1.0)
+[Source code] https://www.tagindex.net/css/table/white_space.html
+(Accessed 7 March 2024).
+-->
